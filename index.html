@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinAI Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h2 class="logo"><i data-lucide="zap"></i>FinAI</h2>
+                <button id="newChatBtn" class="btn btn-primary">
+                    <i data-lucide="plus"></i>
+                    New Chat
+                </button>
+            </div>
+            <div id="chatHistory" class="sidebar-content"></div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="/placeholder.svg?height=48&width=48" alt="User Avatar" class="avatar">
+                    <div>
+                        <p class="user-name">John Doe</p>
+                        <p class="user-email">john@example.com</p>
+                        <p class="user-plan">Pro Plan</p>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <button class="btn btn-outline">
+                        <i data-lucide="settings"></i>
+                        Settings
+                    </button>
+                    <button class="btn btn-outline">
+                        <i data-lucide="log-out"></i>
+                        Log out
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <button id="sidebarToggle" class="btn btn-icon">
+                    <i data-lucide="menu"></i>
+                </button>
+                <h1>FinAI Dashboard</h1>
+                <div class="system-buttons">
+                    <button class="btn btn-outline btn-system">
+                        <i data-lucide="briefcase"></i>
+                        ERP System
+                    </button>
+                    <button class="btn btn-outline btn-system">
+                        <i data-lucide="database"></i>
+                        Database
+                    </button>
+                    <button class="btn btn-outline btn-system">
+                        <i data-lucide="users"></i>
+                        Salesforce
+                    </button>
+                    <button class="btn btn-outline btn-system">
+                        <i data-lucide="box"></i>
+                        Manufacturing
+                    </button>
+                </div>
+            </header>
+
+            <div class="agent-selector">
+                <h3>Select AI Agent</h3>
+                <div id="agentButtons"></div>
+            </div>
+
+            <div id="monthEndCloseContent">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="chat">Chat</button>
+                    <button class="tab-button" data-tab="dashboard">Dashboard</button>
+                    <button class="tab-button" data-tab="progress">Progress</button>
+                </div>
+
+                <div id="chatTab" class="tab-content active">
+                    <div id="chatMessages" class="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button id="sendButton" class="btn btn-primary">
+                            <i data-lucide="send"></i>
+                            Send
+                        </button>
+                    </div>
+                </div>
+
+                <div id="dashboardTab" class="tab-content">
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <h3>Month End Close Progress</h3>
+                            <div class="progress-bar">
+                                <div id="overallProgress" class="progress" style="width: 0%;"></div>
+                            </div>
+                            <p><span id="completedSteps">0</span> of <span id="totalSteps">6</span> steps completed</p>
+                        </div>
+                        <div class="card">
+                            <h3>Emails Sent</h3>
+                            <p class="large-number" id="emailsSent">0</p>
+                            <p>Total emails sent</p>
+                        </div>
+                        <div class="card">
+                            <h3>Email Responses</h3>
+                            <p class="large-number" id="emailResponses">0</p>
+                            <p>Responses received</p>
+                        </div>
+                    </div>
+                    <div class="card full-width">
+                        <h3>Month End Close Progress</h3>
+                        <div id="progressSteps"></div>
+                    </div>
+                </div>
+
+                <div id="progressTab" class="tab-content">
+                    <h2>Month End Close Progress</h2>
+                    <div id="progressCards" class="progress-grid"></div>
+                </div>
+            </div>
+
+            <div id="otherAgentContent" style="display: none;">
+                <div id="agentChatMessages" class="chat-messages"></div>
+                <div class="chat-input">
+                    <input type="text" id="agentMessageInput" placeholder="Type your message...">
+                    <button id="agentSendButton" class="btn btn-primary">
+                        <i data-lucide="send"></i>
+                        Send
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
